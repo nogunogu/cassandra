@@ -4,15 +4,26 @@
 
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
-
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe package('cassandra') do
+  it { should be_installed }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe package('python') do
+  it { should be_installed }
+end
+
+describe command('java -version') do
+  its(:stdout) { should match(/.*1\.8\.*/) }
+end
+
+describe command('python -V') do
+  its(:stdout) { should match(/Python 2.7.*/) }
+end
+
+describe command('echo 1') do
+  its(:stdout) { should match(/[0-9]/) }
+end
+
+describe command('cat /etc/os-release | grep VERSION') do
+  its(:stdout) { should match(/.*16\.04.*/) }
 end
