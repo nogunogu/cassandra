@@ -23,3 +23,8 @@ end
 describe command('cat /etc/os-release | grep VERSION') do
   its(:stdout) { should match(/.*16\.04.*/) }
 end
+
+describe command('nodetool status') do
+  its(:stdout) { should match(/.*UN .*/) }
+  its(:stdout) { should_not match(/.*DN.*/) }
+end
