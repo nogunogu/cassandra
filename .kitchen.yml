@@ -20,8 +20,10 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[cassandra::default]
+      - recipe[cassandra::install]
+      - recipe[cassandra::config]
     verifier:
       inspec_tests:
-        - test/integration/default
+        - test/integration/default/install_test.rb
+        - test/integration/default/config_test.rb
     attributes:
