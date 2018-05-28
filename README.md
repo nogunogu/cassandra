@@ -1,6 +1,23 @@
 # cassandra
 
-TODO: Enter the cookbook description here.
+Cassandra のセットアップを Chef を使ってやってみる練習。
+
+手順概要
+1. Cassandra及び必要パッケージのインストール
+1. 設定ファイルの更新
+1. データの追加
+1. ストレステスト
+1. ノードの追加(1 -> 3, RF=1)
+1. ストレステスト
+1. RFの変更(1, 2, 3)
+1. ストレステスト
+1. DCの追加
+1. ストレステスト
+
+
+
+
+
 
 DataCenterの追加。
 
