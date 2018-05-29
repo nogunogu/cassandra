@@ -23,6 +23,7 @@ suites:
       - recipe[cassandra::install]
       - recipe[cassandra::config]
       - recipe[cassandra::keyspace]
+      - recipe[cassandra::table]
     verifier:
       inspec_tests:
         - test/integration/default

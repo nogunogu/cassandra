@@ -1,0 +1,67 @@
+CREATE TABLE IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (
+  race_year int,
+  race_name text,
+  cyclist_name text,
+  rank int,
+  PRIMARY KEY((race_year, race_name), rank)
+);
+
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2015, 'Giro d''Italia - Stage 11 - Forli > Imola', 'Ilnur ZAKARIN', 1) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2014, '4th Tour of Beijing', 'Daniel MARTIN', 2) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2014, '4th Tour of Beijing', 'Phillippe GILBERT', 1) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2014, '4th Tour of Beijing', 'Johan Estenban CHAVES', 3) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Adam PHELAN', 2) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2015, 'Giro d''Italia - Stage 11 - Forli > Imola', 'Carlos BETANCUR', 2) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Thomas LEBAS', 3) IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year, race_name, cyclist_name, rank)
+VALUES (2015, 'Tour of Japan - Stage 4 - Minami > Shinshu', 'Benjamin PRADES', 1) IF NOT EXISTS;
+
+
+
+CREATE TABLE IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.cyclist_category (
+  category text,
+  points int,
+  id UUID,
+  lastname text,
+  PRIMARY KEY(category, points)
+)
+WITH CLUSTERING ORDER BY (points desc);
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('GC', 1269, uuid(), 'TIRALONGO') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('GC', 1324, uuid(), 'KRUIJSWIJK') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('Sprint', 39, uuid(), 'KRUIJSWIJK') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('Sprint', 0, uuid(), 'TIRALONGO') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('Time-trial', 3, uuid(), 'KRUIJSWIJK') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('Time-trial', 182, uuid(), 'TIRALONGO') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('One-day-races', 198, uuid(), 'KRUIJSWIJK') IF NOT EXISTS;
+
+INSERT INTO <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category, points, id, lastname)
+VALUES ('One-day-races', 367, uuid(), 'TIRALONGO') IF NOT EXISTS;
