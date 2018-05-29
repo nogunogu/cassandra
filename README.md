@@ -26,7 +26,9 @@ h1. 手順詳細
    attributes/default.rb を必要に応じて変更
    cassandra::config で設定更新
 
-
+1. キースペース作成
+   cassandra::keyspace でテスト用keyspace作成
+   
 
 DataCenterの追加。
 

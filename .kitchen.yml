@@ -22,8 +22,8 @@ suites:
     run_list:
       - recipe[cassandra::install]
       - recipe[cassandra::config]
+      - recipe[cassandra::keyspace]
     verifier:
       inspec_tests:
-        - test/integration/default/install_test.rb
-        - test/integration/default/config_test.rb
+        - test/integration/default
     attributes:

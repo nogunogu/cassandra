@@ -19,3 +19,4 @@ default['cassandra']['topology'] = '
 10.142.0.3=DC2:RAC1
 10.142.0.4=DC2:RAC1
 '
+default['cassandra']['test_keyspace'] = 'testkeyspace'
