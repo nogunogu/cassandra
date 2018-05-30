@@ -1,6 +1,35 @@
 # cassandra
 
-TODO: Enter the cookbook description here.
+Cassandra のセットアップを Chef を使ってやってみる練習。
+
+h1. 手順概要
+
+1. Cassandra及び必要パッケージのインストール
+1. 設定ファイルの更新
+1. キースペース作成
+1. テーブル作成とデータの追加
+1. ストレステスト
+1. ノードの追加(1 -> 3, RF=1)
+1. ストレステスト
+1. RFの変更(1, 2, 3)
+1. ストレステスト
+1. DCの追加
+1. ストレステスト
+
+
+h1. 手順詳細
+
+1. Cassandra及び必要パッケージのインストール
+   cassandra::install でインストール
+
+1. 設定ファイルの更新
+   attributes/default.rb を必要に応じて変更
+   cassandra::config で設定更新
+
+1. キースペース作成
+   cassandra::keyspace でテスト用keyspace作成
+
+1. テーブル作成とデータの追加
 
 DataCenterの追加。
 

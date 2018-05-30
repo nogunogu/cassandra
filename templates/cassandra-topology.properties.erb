@@ -15,13 +15,7 @@
 # limitations under the License.
 
 # Cassandra Node IP=Data Center:Rack
-10.146.0.2=DC1:RAC1
-10.146.0.3=DC1:RAC1
-10.146.0.4=DC1:RAC1
-
-10.142.0.2=DC2:RAC1
-10.142.0.3=DC2:RAC1
-10.142.0.4=DC2:RAC1
+<%= node['cassandra']['topology'] %>
 
 # default for unknown nodes
 default=DC1:RAC1

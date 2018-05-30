@@ -5,14 +5,12 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe command('nodetool status') do
+  its(:stdout) { should match(/.*UN .*/) }
+  its(:stdout) { should_not match(/.*DN.*/) }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
-end
+# describe command('cqlsh') do
+#   # todo: use variable
+#   its(:stdout) { should match(/.* Test Cluster1 .*/) }
+# end

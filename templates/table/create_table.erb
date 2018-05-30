@@ -1,0 +1,35 @@
+-- Simple primary key
+CREATE TABLE IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.cyclist_name (
+  id UUID PRIMARY KEY,
+  lastname text,
+  firstname text
+);
+
+-- Multiple primary key with Multiple partition key
+CREATE TABLE IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (
+  race_year int,
+  race_name text,
+  cyclist_name text,
+  rank int,
+  PRIMARY KEY((race_year, race_name), rank)
+);
+
+-- Multiple primary key without specifying partition key
+CREATE TABLE IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.cyclist_category (
+  category text,
+  points int,
+  id UUID,
+  lastname text,
+  PRIMARY KEY(category, points)
+)
+WITH CLUSTERING ORDER BY (points desc);
+
+-- Multiple primary key with Clustering order
+create table IF NOT EXISTS <%= node['cassandra']['test_keyspace'] %>.videos_by_tag (
+ tag text,
+ video_id uuid,
+ added_date timestamp,
+ title text,
+ primary key ((tag), added_date, video_id)
+)
+with clustering order by (added_date desc);

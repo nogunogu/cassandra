@@ -20,7 +20,10 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[cassandra::default]
+      - recipe[cassandra::install]
+      - recipe[cassandra::config]
+      - recipe[cassandra::keyspace]
+      - recipe[cassandra::table]
     verifier:
       inspec_tests:
         - test/integration/default
