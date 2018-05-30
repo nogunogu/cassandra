@@ -1,0 +1,4 @@
+COPY <%= node['cassandra']['test_keyspace'] %>.cyclist_name (id,lastname,firstname) FROM '/tmp/data_cyclist_name.csv' WITH HEADER = TRUE;
+COPY <%= node['cassandra']['test_keyspace'] %>.cyclist_category (category,points,id,lastname) FROM '/tmp/data_cyclist_category.csv' WITH HEADER = TRUE;
+COPY <%= node['cassandra']['test_keyspace'] %>.rank_by_year_and_name (race_year,race_name,cyclist_name,rank) FROM '/tmp/data_rank_by_year_and_name.csv' WITH HEADER = TRUE;
+COPY <%= node['cassandra']['test_keyspace'] %>.videos_by_tag (tag,video_id,added_date,title) FROM '/tmp/data_videos_by_tag.csv' WITH HEADER = TRUE;
